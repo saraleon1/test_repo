@@ -19,6 +19,7 @@ view: products {
 
   dimension: department {
     type: string
+    label: "testA"
     sql: ${TABLE}.department ;;
   }
 
