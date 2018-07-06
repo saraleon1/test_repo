@@ -25,6 +25,7 @@ view: products {
 
   dimension: item_name {
     type: string
+    label: "testB"
     sql: ${TABLE}.item_name ;;
   }
 
