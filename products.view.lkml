@@ -41,6 +41,7 @@ view: products {
 
   dimension: order_amount_test {
     type: number
+    label: "test branch"
     value_format: "$0.00"
     sql: ${TABLE}.retail_price;;
     }
