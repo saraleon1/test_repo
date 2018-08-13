@@ -64,6 +64,20 @@ view: users {
     sql: ${TABLE}.state ;;
   }
 
+  dimension: state_region {
+    case: {
+      when: {
+        sql: ${TABLE}.state = "Michigan" OR ${TABLE}.state = "Ohio";;
+        label: "Midwest"
+      }
+      when: {
+        sql: ${TABLE}.state = "Alabama" OR ${TABLE}.state = "Mississippi" ;;
+        label: "South"
+      }
+    }
+    alpha_sort: yes
+  }
+
   dimension: zip {
     type: zipcode
     sql: ${TABLE}.zip ;;

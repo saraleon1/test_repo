@@ -1,7 +1,7 @@
 view: inventory_items {
   sql_table_name: demo_db.inventory_items ;;
 
-  dimension: id {
+ dimension: id {
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;

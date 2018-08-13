@@ -6,20 +6,8 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
-datagroup: sara_ramp_model_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
-}
-
-datagroup: four_hour_cache {
-  max_cache_age: "4 hours"
-
-}
-
-persist_with: sara_ramp_model_default_datagroup
-
+explore: schema_migrations {}
 explore: events {
-  persist_with: four_hour_cache
 
   join: users {
     type: left_outer
@@ -41,12 +29,7 @@ explore: events {
 }
 
 explore: inventory_items {
-  always_filter: {
-    filters: {
-      field: created_year
-      value: "2017"
-    }
-  }
+
   join: products {
     type: left_outer
     sql_on: ${inventory_items.product_id} = ${products.id} ;;
@@ -81,7 +64,7 @@ explore: order_items {
 }
 
 explore: orders {
-  sql_always_where: ${created_date} >= '2015-01-06' ;;
+
   join: users {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
@@ -89,20 +72,9 @@ explore: orders {
   }
 }
 
-explore: products {
-  label: "different"
-
-
-}
-
-explore: schema_migrations {}
+explore: products {}
 
 explore: user_data {
-
-  fields: [
-    ALL_FIELDS*,
-    - user_data.max_num_orders
-  ]
 
   join: users {
     type: left_outer
@@ -120,6 +92,8 @@ explore: user_data {
 explore: users {}
 
 explore: users_nn {}
+
+explore: customer_order_facts {}
 
 # x At least three Explores. Amongst the three, there should be:
 # x An Explore that is cached for 4 hours (hint: read about datagroups! (hint 2: persist_with:))
