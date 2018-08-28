@@ -28,6 +28,8 @@ explore: events {
 
 }
 
+explore: pdt_sme_test {}
+
 explore: inventory_items {
 
   join: products {
