@@ -33,6 +33,12 @@ view: order_items {
     sql: ${TABLE}.returned_at ;;
   }
 
+  measure: sum_sale {
+    type: sum
+    sql: ${TABLE}.sale_price ;;
+  }
+
+
   dimension: sale_price {
     type: number
     sql: ${TABLE}.sale_price ;;
