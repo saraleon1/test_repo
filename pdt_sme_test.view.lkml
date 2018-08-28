@@ -17,5 +17,6 @@ view: pdt_sme_test {
 
   measure: average_sum {
     type: average
+    sql: ${TABLE}.sum_sale ;;
   }
 }
