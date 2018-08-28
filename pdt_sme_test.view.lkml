@@ -14,4 +14,8 @@ view: pdt_sme_test {
   dimension: sum_sale {
     type: number
   }
+
+  measure: average_sum {
+    type: average
+  }
 }
