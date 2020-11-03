@@ -17,9 +17,9 @@
 //});
 
 
-console.log("Hello Console!");
-console.log(document.title);
+// console.log("Hello Console!");
+// console.log(document.title);
 
 
 
-document.write(`hi`);
+// document.write(`hi`);
